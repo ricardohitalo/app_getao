@@ -28,21 +28,6 @@ Route::prefix('/app')->group(function(){
     Route::get('/produtos', function(){ return 'Produtos'; })->name('app.produtos');
 });
 
-Route::get('/rota1', function(){
-    return redirect()->route('site.rota2');
-})->name('site.rota1');
-
-Route::get('/rota2', function(){
-    echo 'Rota 2';
-})->name('site.rota2');
-
-// Route::redirect('/rota2', '/rota1');
-// Route::get(
-//     '/contato/{nome?}/{categoria_id?}',
-//     function(
-//         string $nome = 'Desconhecido',
-//         int $categoria_id = 1
-//     ){
-//        echo 'Estamos aqui: '.$nome.' - '.$categoria_id;
-//     }
-// )->where('categoria_id', '[0-9]+')->where('nome', '[A-Za-z]+');
+Route::fallback(function() {
+    echo 'Rota inexistente - <a href="'.route('site.index').'"> clique aqui para retornar a página inicial </a>';
+});
