@@ -28,6 +28,8 @@ Route::prefix('/app')->group(function(){
     Route::get('/produtos', function(){ return 'Produtos'; })->name('app.produtos');
 });
 
+Route::get('/teste/{p1}/{p2}', 'TesteController@teste')->name('teste');
+
 Route::fallback(function() {
     echo 'Rota inexistente - <a href="'.route('site.index').'"> clique aqui para retornar a página inicial </a>';
 });
