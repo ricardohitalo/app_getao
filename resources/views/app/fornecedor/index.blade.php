@@ -13,17 +13,23 @@
 @endphp
 
 {{-- @dd($fornecedores) --}}
-Fornecedor: {{ $fornecedores[0]['nome'] }} <br>
-Status: {{ $fornecedores[0]['status'] }}
-@if($fornecedores[0]['status'] == 'N')
-        <h3>Fornecedor Inativo</h3>
-@endif
+@isset($fornecedores)
+    Fornecedor: {{ $fornecedores[0]['nome'] }}
+    <br>
+    Status: {{ $fornecedores[0]['status'] }}
+    <br>
+    @isset ($fornecedores[0]['cnpj'])
+        CNPJ: {{ $fornecedores[0]['cnpj'] }}
+    @endisset
 
-@unless ($fornecedores[0]['status'] == 'S')
-        Fornecedor Inativo
-    
-@endunless
+    {{-- @if($fornecedores[0]['status'] == 'N')
+            <h3>Fornecedor Inativo</h3>
+    @endif
 
+    @unless ($fornecedores[0]['status'] == 'S')
+            Fornecedor Inativo 
+    @endunless --}}
+@endisset
 {{-- @if(count($fornecedores) > 0 && count($fornecedores) < 10)
     <h3>Existem alguns fonrnecedores cadastrados </h3>
 @elseif(count($fornecedores) > 10)
