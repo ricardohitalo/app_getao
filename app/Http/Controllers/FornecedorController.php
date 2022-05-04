@@ -29,6 +29,13 @@ class FornecedorController extends Controller
                 'ddd'=> '99',
                 'telefone' => '00000-0000',
             ],
+            3 => [
+                'nome' => 'Fornecedor 4',
+                'status' => 'S',
+                'cnpj' => '11.111.111/1111-11',
+                'ddd'=> '89',
+                'telefone' => '00000-0000',
+            ],
         ];
 
         // echo $fornecedores[0]['cnpj'] ? 'CNPJ informado' : 'CNPJ não informado';
