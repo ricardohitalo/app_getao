@@ -14,16 +14,16 @@
 
 {{-- @dd($fornecedores) --}}
 @isset($fornecedores)
-    @for ($i = 0; $i < 3; $i++)    
-        Fornecedor: {{ $fornecedores[$i]['nome'] }}
+    @foreach ($fornecedores as $index => $fornecedor)
+        Fornecedor: {{ $fornecedor['nome'] }}
         <br>
-        Status: {{ $fornecedores[$i]['status'] }}
+        Status: {{ $fornecedor['status'] }}
         <br>
-        CNPJ: {{$fornecedores[$i]['cnpj'] ?? ''}}
+        CNPJ: {{$fornecedor['cnpj'] ?? ''}}
         <br>
-        Telefone: {{ $fornecedores[$i]['ddd'] ?? ''}} {{ $fornecedores[$i]['telefone']}}
+        Telefone: {{ $fornecedor['ddd'] ?? ''}} {{ $fornecedor['telefone']}}
         <br>
-        @switch($fornecedores[$i]['ddd'])
+        @switch($fornecedor['ddd'])
             @case('11')
                 São Paulo - SP
                 @break
@@ -36,27 +36,6 @@
             @default
                 Estado não identificado
         @endswitch
-        <br> <br>
-    @endfor
-    {{-- @isset ($fornecedores[0]['cnpj'])
-        CNPJ: {{ $fornecedores[0]['cnpj'] }}
-            @empty($fornecedores[0]['cnpj'])
-              - Vazio  
-            @endempty
-    @endisset --}}
-
-    {{-- @if($fornecedores[0]['status'] == 'N')
-            <h3>Fornecedor Inativo</h3>
-    @endif
-
-    @unless ($fornecedores[0]['status'] == 'S')
-            Fornecedor Inativo 
-    @endunless --}}
+        <hr>
+    @endforeach
 @endisset
-{{-- @if(count($fornecedores) > 0 && count($fornecedores) < 10)
-    <h3>Existem alguns fonrnecedores cadastrados </h3>
-@elseif(count($fornecedores) > 10)
-    <h3>Existem muitos fornecedores cadastrados</h3>
-@else
-    <h3>Não exitem fornecedores cadastrados</h3>
-@endif --}}
