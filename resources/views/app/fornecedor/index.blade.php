@@ -14,11 +14,30 @@
 
 {{-- @dd($fornecedores) --}}
 @isset($fornecedores)
-    Fornecedor: {{ $fornecedores[0]['nome'] }}
-    <br>
-    Status: {{ $fornecedores[0]['status'] }}
-    <br>
-    CNPJ: {{$fornecedores[0]['cnpj'] ?? ''}}
+    @for ($i = 0; $i < 3; $i++)    
+        Fornecedor: {{ $fornecedores[$i]['nome'] }}
+        <br>
+        Status: {{ $fornecedores[$i]['status'] }}
+        <br>
+        CNPJ: {{$fornecedores[$i]['cnpj'] ?? ''}}
+        <br>
+        Telefone: {{ $fornecedores[$i]['ddd'] ?? ''}} {{ $fornecedores[$i]['telefone']}}
+        <br>
+        @switch($fornecedores[$i]['ddd'])
+            @case('11')
+                São Paulo - SP
+                @break
+            @case('86')
+                Teresina - PI
+                @break
+            @case('99')
+                Imperatriz - MA
+                @break
+            @default
+                Estado não identificado
+        @endswitch
+        <br> <br>
+    @endfor
     {{-- @isset ($fornecedores[0]['cnpj'])
         CNPJ: {{ $fornecedores[0]['cnpj'] }}
             @empty($fornecedores[0]['cnpj'])
