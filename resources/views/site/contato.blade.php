@@ -1,5 +1,7 @@
 @extends('site.layout.base')
 
+@section('title', 'Contato')
+
 @section('content')
     <div class="topo">
 
