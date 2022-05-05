@@ -1,6 +1,6 @@
-<h3>Fornecedor</h3>
+<h3>Fornecedores</h3>
 
-@php
+{{-- @php
     
     // if() {
 
@@ -10,20 +10,21 @@
 
     // }
 
-@endphp
+@endphp --}}
 
 {{-- @dd($fornecedores) --}}
 @isset($fornecedores)
-    @foreach ($fornecedores as $index => $fornecedor)
-        Fornecedor: {{ $fornecedor['nome'] }}
+    @php $i = 0 @endphp
+    @while (isset($fornecedores[$i]))
+        Fornecedor: {{ $fornecedores[$i]['nome'] }}
         <br>
-        Status: {{ $fornecedor['status'] }}
+        Status: {{ $fornecedores[$i]['status'] }}
         <br>
-        CNPJ: {{$fornecedor['cnpj'] ?? ''}}
+        CNPJ: {{$fornecedores[$i]['cnpj'] ?? ''}}
         <br>
-        Telefone: {{ $fornecedor['ddd'] ?? ''}} {{ $fornecedor['telefone']}}
+        Telefone: {{ $fornecedores[$i]['ddd'] ?? ''}} {{ $fornecedores[$i]['telefone']}}
         <br>
-        @switch($fornecedor['ddd'])
+        @switch($fornecedores[$i]['ddd'])
             @case('11')
                 São Paulo - SP
                 @break
@@ -36,6 +37,7 @@
             @default
                 Estado não identificado
         @endswitch
+        @php $i++ @endphp
         <hr>
-    @endforeach
+    @endwhile
 @endisset
