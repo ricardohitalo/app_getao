@@ -37,7 +37,7 @@ class FornecedorController extends Controller
                 'telefone' => '00000-0000',
             ],
         ];
-        $fornecedores = [];
+        // $fornecedores = [];
 
         // echo $fornecedores[0]['cnpj'] ? 'CNPJ informado' : 'CNPJ não informado';
 
