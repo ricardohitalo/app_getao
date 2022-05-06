@@ -11,7 +11,7 @@
 
         <div class="informacao-pagina">
             <div class="contato-principal">
-                @component('site.layout._components.form_contato')
+                @component('site.layout._components.form_contato', [ 'borderColor' => 'borda-preta'])
                 @endcomponent
             </div>
         </div>  
