@@ -46,7 +46,7 @@ class AjusteProdutosFiliais extends Migration
     {
         Schema::table('produtos', function (Blueprint $table) {
             $table->decimal('preco_venda', 8, 2);
-            $table->ingteger('estoque_minimo');
+            $table->integer('estoque_minimo');
             $table->integer('estoque_maximo');
         });
 
