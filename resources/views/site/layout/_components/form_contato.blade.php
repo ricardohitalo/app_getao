@@ -19,6 +19,7 @@
             {{ old('mensagem') }}
         @else
             Preencha aqui a sua mensagem
+        @endif
     </textarea>
     <br>
     <button type="submit" class="{{ $borderColor }}">ENVIAR</button>
