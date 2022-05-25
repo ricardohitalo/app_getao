@@ -1,5 +1,5 @@
 
-<form action="{{ route('site.contato') }}" method="get">
+<form action="{{ route('site.contato') }}" method="post">
     @csrf
     <input name="nome" type="text" placeholder="Nome" class="{{ $borderColor }}">
     <br>
@@ -18,3 +18,9 @@
     <br>
     <button type="submit" class="{{ $borderColor }}">ENVIAR</button>
 </form>
+
+<div style="position:absolute; top:0px; width:100%; background:red;">
+    <pre>
+        {{ print_r($errors) }}
+    </pre>
+</div>
